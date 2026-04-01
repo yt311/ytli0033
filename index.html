@@ -1,9 +1,751 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>My Website</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yi-Ting Li | Portfolio</title>
+  <meta name="description" content="Personal academic portfolio of Yi-Ting Li" />
+  <style>
+    :root {
+      --bg: #f6f8fb;
+      --surface: #ffffff;
+      --surface-2: #eef3f8;
+      --text: #1f2937;
+      --muted: #5b6472;
+      --line: #d9e1ea;
+      --primary: #1f4f8f;
+      --primary-2: #3d6fb3;
+      --accent: #dbe8f8;
+      --shadow: 0 12px 30px rgba(31, 79, 143, 0.08);
+      --max: 1120px;
+      --radius: 22px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: linear-gradient(180deg, #f8fbff 0%, #f3f6fb 100%);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
+    .nav-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+      background: rgba(248, 251, 255, 0.82);
+      border-bottom: 1px solid rgba(217, 225, 234, 0.8);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      min-height: 72px;
+      gap: 20px;
+    }
+
+    .brand {
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      color: var(--primary);
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .hero {
+      padding: 72px 0 36px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 0.95fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-main {
+      padding: 40px;
+      background:
+        radial-gradient(circle at top right, rgba(61, 111, 179, 0.14), transparent 34%),
+        linear-gradient(135deg, #ffffff 0%, #f7fbff 100%);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--surface-2);
+      color: var(--primary);
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.2rem, 4vw, 4.4rem);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+    }
+
+    .subtitle {
+      margin: 18px 0 0;
+      font-size: 1.08rem;
+      color: var(--muted);
+      max-width: 60ch;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 18px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--text);
+      font-weight: 700;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 22px rgba(31, 41, 55, 0.08);
+      text-decoration: none;
+    }
+
+    .btn.primary {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    .hero-side {
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .stat {
+      background: var(--surface-2);
+      border-radius: 18px;
+      padding: 18px;
+      border: 1px solid #dde7f2;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.8rem;
+      line-height: 1;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+
+    .meta-list {
+      display: grid;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .meta-list div {
+      padding-bottom: 10px;
+      border-bottom: 1px dashed var(--line);
+    }
+
+    section {
+      padding: 24px 0;
+    }
+
+    .section-title {
+      margin: 0 0 16px;
+      font-size: 1.8rem;
+      letter-spacing: -0.02em;
+    }
+
+    .section-lead {
+      margin: 0 0 24px;
+      color: var(--muted);
+      max-width: 72ch;
+    }
+
+    .about {
+      padding: 30px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .about img {
+      width: 100%;
+      max-width: 260px;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      justify-self: center;
+    }
+
+    @media (max-width: 920px) {
+      .about {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+    }
+
+    .timeline {
+      display: grid;
+      gap: 18px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 22px;
+      padding: 24px;
+    }
+
+    .timeline-item + .timeline-item {
+      border-top: 1px solid var(--line);
+    }
+
+    .time {
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    .item-title {
+      font-size: 1.1rem;
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+
+    .item-subtitle {
+      color: var(--muted);
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .chip {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--surface-2);
+      border: 1px solid #dbe5f1;
+      color: var(--primary);
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    .publication-list,
+    .achievement-list {
+      display: grid;
+      gap: 18px;
+    }
+
+    .publication,
+    .achievement {
+      padding: 22px;
+    }
+
+    .year-tag {
+      display: inline-block;
+      margin-bottom: 10px;
+      font-size: 0.88rem;
+      font-weight: 800;
+      color: var(--primary);
+      background: var(--accent);
+      padding: 7px 10px;
+      border-radius: 999px;
+    }
+
+    .pub-title,
+    .ach-title {
+      font-size: 1.08rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .pub-venue,
+    .ach-desc {
+      color: var(--muted);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .skill-card {
+      padding: 24px;
+    }
+
+    .skill-card h3 {
+      margin-top: 0;
+      margin-bottom: 14px;
+      font-size: 1.05rem;
+    }
+
+    .skill-card ul {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .contact {
+      padding: 30px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .contact-box {
+      background: linear-gradient(135deg, #eff6ff 0%, #ffffff 100%);
+      border: 1px solid #d7e4f5;
+      border-radius: 20px;
+      padding: 22px;
+    }
+
+    footer {
+      padding: 28px 0 50px;
+      color: var(--muted);
+      font-size: 0.95rem;
+      text-align: center;
+    }
+
+    .menu-btn {
+      display: none;
+      border: 1px solid var(--line);
+      background: white;
+      padding: 10px 12px;
+      border-radius: 12px;
+      font-weight: 700;
+    }
+
+    @media (max-width: 920px) {
+      .hero-grid,
+      .contact,
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline-item {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+    }
+
+    @media (max-width: 760px) {
+      nav {
+        align-items: flex-start;
+        padding: 14px 0;
+      }
+
+      .menu-btn {
+        display: inline-flex;
+      }
+
+      .nav-right {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 10px;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        width: min(260px, 80vw);
+        background: white;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 14px;
+        box-shadow: var(--shadow);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .hero-main,
+      .hero-side,
+      .about,
+      .contact,
+      .skill-card,
+      .publication,
+      .achievement {
+        padding: 22px;
+      }
+
+      h1 {
+        font-size: 2.3rem;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>Hello GitHub Pages!</h1>
+  <div class="nav-wrap">
+    <div class="container">
+      <nav>
+        <a class="brand" href="#top">Yi-Ting Li</a>
+        <div class="nav-right">
+          <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">Menu</button>
+          <div class="nav-links" id="navLinks">
+            <a href="#about">About</a>
+            <a href="#education">Education</a>
+            <a href="#experience">Experience</a>
+            <a href="#publications">Publications</a>
+            <a href="#achievements">Achievements</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
+
+  <main id="top">
+    <!--<section class="hero">
+      <div class="container hero-grid">
+        <div class="card hero-main">
+          <div class="eyebrow">EDA Researcher · PhD Candidate · CAD Competitor</div>
+          <p class="subtitle">
+            I am Yi-Ting Li, a PhD candidate at National Tsing Hua University. My work spans Electronic Design Automation, logic synthesis, CAD competitions, and chip-level optimization research.
+          </p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#publications">View Publications</a>
+            <a class="btn" href="#contact">Contact Me</a>
+          </div>
+        </div>
+
+        <aside class="card hero-side">
+          <div class="stat-grid">
+            <div class="stat">
+              <strong>5+</strong>
+              <span>Selected publications</span>
+            </div>
+            <div class="stat">
+              <strong>6</strong>
+              <span>Major competition results</span>
+            </div>
+            <div class="stat">
+              <strong>3</strong>
+              <span>Working languages</span>
+            </div>
+            <div class="stat">
+              <strong>EDA</strong>
+              <span>Research core field</span>
+            </div>
+          </div>
+          <div class="meta-list">
+            <div><strong>Email:</strong> <a href="mailto:yitingli.yt@gmail.com">yitingli.yt@gmail.com</a></div>
+            <div><strong>GitHub Pages:</strong> <a href="https://yt311.github.io/ytli0033/" target="_blank" rel="noreferrer">yt311.github.io/ytli0033</a></div>
+            <div><strong>Focus:</strong> Approximate Logic Synthesis, Heterogeneous Integration</div>
+            <div><strong>Advisor:</strong> Prof. Chun-Yao Wang</div>
+          </div>
+        </aside>
+      </div>
+    </section>-->
+
+    <section id="about">
+      <div class="container">
+        <div class="card about">
+          <div>
+            <h2 class="section-title">About</h2>
+            <p class="section-lead">
+              I earned my bachelor’s degree from National Taiwan University of Science and Technology, worked as a software engineer in Japan, and later returned to Taiwan for graduate study at National Tsing Hua University. Through my PhD journey, I have conducted research in EDA, participated in CAD competitions, and focused on algorithmic and learning-based approaches to digital circuit optimization.
+            </p>
+            <div class="chips">
+              <span class="chip">VLSI Design</span>
+              <span class="chip">Electronic Design Automation</span>
+              <span class="chip">Approximate Logic Synthesis</span>
+              <span class="chip">Heterogeneous Integration</span>
+              <span class="chip">CAD Contest</span>
+              <span class="chip">C/C++</span>
+              <span class="chip">Python</span>
+              <span class="chip">Verilog</span>
+            </div>
+          </div>
+          <div>
+            <img src="profile_photo.jpg" alt="Yi-Ting Li profile photo" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="container">
+        <h2 class="section-title">Education</h2>
+        <p class="section-lead">Academic background spanning computer science, electrical engineering, and EDA research.</p>
+        <div class="card timeline">
+          <article class="timeline-item">
+            <div class="time">2020 – 2026</div>
+            <div>
+              <div class="item-title">M.S./Ph.D. Degree</div>
+              <div class="item-subtitle">Department of Computer Science, National Tsing Hua University, Taiwan</div>
+              <div>(Direct Pursuit from Master Program)</div> 
+              <div>Advisor: Prof. Chun-Yao Wang</div>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <div class="time">2012 – 2016</div>
+            <div>
+              <div class="item-title">Bachelor Degree</div>
+              <div class="item-subtitle">Department of Electrical Engineering, National Taiwan University of Science and Technology, Taiwan</div>
+              <div>Piano Club / Committee of Student Government</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="container">
+        <h2 class="section-title">Working & Internship Experience</h2>
+        <p class="section-lead">Industry experience in Japan and Taiwan before and during academic development.</p>
+        <div class="card timeline">
+          <article class="timeline-item">
+            <div class="time">2017 – 2020</div>
+            <div>
+              <div class="item-title">Software Engineer</div>
+              <div class="item-subtitle">NAKATA MFG. CO., LTD. · Osaka, Japan</div>
+              <div>T&D Center (Technology and Development), focusing on Intelligent Manufacturing </div>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <div class="time">2015 – 2016</div>
+            <div>
+              <div class="item-title">Intern of Power IC Team</div>
+              <div class="item-subtitle">Texas Instruments · Taipei, Taiwan</div>
+              <div>Completed internship work related to Power IC development.</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="publications">
+      <div class="container">
+        <h2 class="section-title">Selected Publications</h2>
+        <p class="section-lead">Representative publications in logic synthesis, reverse engineering, and machine learning driven EDA.</p>
+        <div class="publication-list">
+          <article class="card publication">
+            <div class="year-tag">2026</div>
+            <div class="pub-title">Learning to Approximate: Circuit Learning and Deep Reinforcement Learning for Approximate Logic Synthesis with an Error Rate Guarantee</div>
+            <div class="pub-venue">CW Chen, YT Li, W Tang, YC Chen, JM Yang, CY Wang · IEEE Design Automation and Test in Europe (DATE) 2026</div>
+          </article>
+          <article class="card publication">
+            <div class="year-tag">2025</div>
+            <div class="pub-title">Approximate Logic Synthesis for Dot-Inverter Graphs Using Node Merging-enhanced Genetic Algorithm-based Approach</div>
+            <div class="pub-venue">YT Li, I Chen, YC Chen, CY Wang · IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems (TCAD)</div>
+          </article>
+          <article class="card publication">
+            <div class="year-tag">2024</div>
+            <div class="pub-title">A Hybrid Approach to Reverse Engineering on Combinational Circuits</div>
+            <div class="pub-venue">W Tang, YT Li, KP Hsu, KL Chou, YC Lin, CF Chien, YC Chen, TC Wang, SC Chang, T Hwang, CY Wang · IEEE Design Automation and Test in Europe (DATE) 2024</div>
+          </article>
+          <article class="card publication">
+            <div class="year-tag">2023</div>
+            <div class="pub-title">Approximate Logic Synthesis by Genetic Algorithm with an Error Rate Guarantee</div>
+            <div class="pub-venue">CT Lee, YT Li, YC Chen, CY Wang · IEEE Asia and South Pacific Design Automation Conference (ASPDAC) 2023</div>
+          </article>
+          <article class="card publication">
+            <div class="year-tag">2022</div>
+            <div class="pub-title">A Don’t-Care-Based Approach to Reducing the Multiplicative Complexity in Logic Networks</div>
+            <div class="pub-venue">HL Liu, YT Li, YC Chen, CY Wang · IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems (TCAD)</div>
+          </article>
+        </div>
+         <button class="toggle-btn" onclick="togglePublications()">Show Full Publication List ▼</button>
+
+        <div class="full-pub-list" id="fullPub">
+          <div class="citation">[2026] YT Li, ... Learning to Approximate... DATE</div>
+          <div class="citation">[2025] YT Li, ... Approximate Logic Synthesis... TCAD</div>
+          <div class="citation">[2024] ... A Hybrid Approach to Reverse Engineering... DATE</div>
+          <div class="citation">[2023] ... Approximate Logic Synthesis by GA... ASPDAC</div>
+          <div class="citation">[2022] ... Don’t-Care-Based Approach... TCAD</div>
+          <div class="citation">... (Total 27 publications)</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="achievements">
+      <div class="container">
+        <h2 class="section-title">Achievements🏆</h2>
+        <p class="section-lead">Competition results and academic recognition across major CAD events.</p>
+        <div class="achievement-list">
+          <article class="card achievement">
+            <div class="year-tag">2024</div>
+            <div class="ach-title">Cadathlon @ ICCAD’24, 2nd Place</div>
+            <div class="ach-desc">One-day EDA programming competition covering circuit design, physical design, synthesis, system design, verification, and future technology.</div>
+          </article>
+          <article class="card achievement">
+            <div class="year-tag">2024</div>
+            <div class="ach-title">CAD Contest @ ICCAD’24, Honorable Mention of Problem B</div>
+            <div class="ach-desc">Power and Timing Optimization Using Multibit Flip-Flop.</div>
+          </article>
+          <article class="card achievement">
+            <div class="year-tag">2024</div>
+            <div class="ach-title">CAD Contest @ ICCAD’24, 2nd Place of Problem A</div>
+            <div class="ach-desc">Reinforcement Logic Optimization for a General Cost Function.</div>
+          </article>
+          <article class="card achievement">
+            <div class="year-tag">2023</div>
+            <div class="ach-title">CAD Contest @ ICCAD’23, 3rd Place of Problem A</div>
+            <div class="ach-desc">Multi-bit Large-scale Boolean Matching.</div>
+          </article>
+          <article class="card achievement">
+            <div class="year-tag">2022</div>
+            <div class="ach-title">Prof. Chung Laung Liu PhD Scholarship Program</div>
+            <div class="ach-desc">Academic scholarship recognition.</div>
+          </article>
+          <article class="card achievement">
+            <div class="year-tag">2022 / 2021</div>
+            <div class="ach-title">CAD Contest @ ICCAD’22 1st Place · ICCAD’21 Honorable Mention</div>
+            <div class="ach-desc">Awarded for gate-level learning and functional ECO related competition problems.</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <h2 class="section-title">Skills</h2>
+        <p class="section-lead">Technical and language capabilities for research, implementation, and international collaboration.</p>
+        <div class="skills-grid">
+          <article class="card skill-card">
+            <h3>Programming</h3>
+            <ul>
+              <li>C / C++</li>
+              <li>Python</li>
+              <li>Verilog</li>
+              <li>LaTeX</li>
+            </ul>
+          </article>
+          <article class="card skill-card">
+            <h3>Languages</h3>
+            <ul>
+              <li>Mandarin Chinese (Native)</li>
+              <li>English (TOEIC 865)</li>
+              <li>Japanese (JLPT N2)</li>
+            </ul>
+          </article>
+          <article class="card skill-card">
+            <h3>Course Projects</h3>
+            <ul>
+              <li>Systolic Array DNN Accelerator</li>
+              <li>K-LUT Technology Mapping for Delay Optimization</li>
+              <li>Placement Legalization</li>
+              <li>Two-way Min-cut Partitioning</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="card contact">
+          <div>
+            <h2 class="section-title">Contact</h2>
+            <p class="section-lead">
+              I am interested in EDA research, logic synthesis, heterogeneous integration, and related collaborations. Feel free to reach out for research discussion or professional contact.
+            </p>
+          </div>
+          <div class="contact-box">
+            <div><strong>Name:</strong> Yi-Ting Li</div>
+            <div><strong>Email:</strong> <a href="mailto:yitingli.y.t@gmail.com">yitingli.y.t@gmail.com</a></div>
+            <div><strong>Website:</strong> <a href="https://yt311.github.io/ytli0033/" target="_blank" rel="noreferrer">yt311.github.io/ytli0033</a></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© <span id="year"></span> Yi-Ting Li. Built for GitHub Pages.</div>
+  </footer>
+
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const navLinks = document.getElementById('navLinks');
+    const year = document.getElementById('year');
+
+    menuBtn?.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+
+    navLinks?.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => navLinks.classList.remove('open'));
+    });
+
+    year.textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
