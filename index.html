@@ -261,6 +261,16 @@
       grid-template-columns: 150px 1fr;
       gap: 22px;
       padding: 24px;
+      align-items: center;
+    }
+
+    .school-logo {
+      width: 52px;
+      height: 52px;
+      object-fit: contain;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: var(--surface);
     }
 
     .timeline-item + .timeline-item {
@@ -577,19 +587,25 @@
         <!--<p class="section-lead">Academic background spanning computer science, electrical engineering, and EDA research.</p>-->
         <div class="card timeline">
           <article class="timeline-item">
-            <div class="time">2020 – 2026</div>
+            <div class="time">
+              <img class="school-logo" src="nthu_logo.gif" alt="NTHU logo" title="National Tsing Hua University" />
+              <div>2020 – 2026</div>
+            </div>
             <div>
-              <div class="item-title">M.S./Ph.D. Degree</div>
-              <div class="item-subtitle">Department of Computer Science, National Tsing Hua University, Taiwan</div>
-              <div>(Direct Admission to the Ph.D. Program from a Master’s Degree)</div> 
+              <div class="item-title">National Tsing Hua University, Taiwan</div>
+              <div class="item-subtitle">Ph.D. Degree, Department of Computer Science</div>
+              <div>(Direct Admission to the Ph.D. Program from the Master’s Program)</div> 
               <div><strong>Advisor:</strong> Prof. Chun-Yao Wang</div>
             </div>
           </article>
           <article class="timeline-item">
-            <div class="time">2012 – 2016</div>
+            <div class="time">
+              <img class="school-logo" src="ntust_logo.png" alt="NTUST logo" title="National Taiwan University of Science and Technology" />
+              <div>2012 – 2016</div>
+            </div>
             <div>
-              <div class="item-title">Bachelor Degree</div>
-              <div class="item-subtitle">Department of Electrical Engineering, National Taiwan University of Science and Technology, Taiwan</div>
+              <div class="item-title">National Taiwan University of Science and Technology, Taiwan</div>
+              <div class="item-subtitle">Bachelor Degree, Department of Electrical Engineering</div>
               <div>Piano Club / Committee of Student Government</div>
             </div>
           </article>
