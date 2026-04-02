@@ -307,6 +307,36 @@
       gap: 18px;
     }
 
+   .full-pub-list {
+      margin-top: 18px;
+      display: none;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: #fff;
+    }
+
+    .full-pub-list.show {
+      display: block;
+    }
+
+    .citation {
+      margin-bottom: 12px;
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .toggle-btn {
+      margin-top: 16px;
+      cursor: pointer;
+      background: var(--surface-2);
+      border: 1px solid var(--line);
+      padding: 10px 14px;
+      border-radius: 12px;
+      font-weight: 700;
+    }
+
     .publication,
     .achievement {
       padding: 22px;
@@ -543,15 +573,15 @@
     <section id="education">
       <div class="container">
         <h2 class="section-title">Education</h2>
-        <p class="section-lead">Academic background spanning computer science, electrical engineering, and EDA research.</p>
+        <!--<p class="section-lead">Academic background spanning computer science, electrical engineering, and EDA research.</p>-->
         <div class="card timeline">
           <article class="timeline-item">
             <div class="time">2020 – 2026</div>
             <div>
               <div class="item-title">M.S./Ph.D. Degree</div>
               <div class="item-subtitle">Department of Computer Science, National Tsing Hua University, Taiwan</div>
-              <div>(Direct Pursuit from Master Program)</div> 
-              <div>Advisor: Prof. Chun-Yao Wang</div>
+              <div>(Direct Admission to the Ph.D. Program from a Master’s Degree)</div> 
+              <div><strong>Advisor:</strong> Prof. Chun-Yao Wang</div>
             </div>
           </article>
           <article class="timeline-item">
@@ -594,7 +624,7 @@
     <section id="publications">
       <div class="container">
         <h2 class="section-title">Selected Publications</h2>
-        <p class="section-lead">Representative publications in logic synthesis, reverse engineering, and machine learning driven EDA.</p>
+        <!--<p class="section-lead">Representative publications in logic synthesis, reverse engineering, and machine learning driven EDA.</p>-->
         <div class="publication-list">
           <article class="card publication">
             <div class="year-tag">2026</div>
@@ -609,7 +639,7 @@
           <article class="card publication">
             <div class="year-tag">2024</div>
             <div class="pub-title">A Hybrid Approach to Reverse Engineering on Combinational Circuits</div>
-            <div class="pub-venue">W Tang, YT Li, KP Hsu, KL Chou, YC Lin, CF Chien, YC Chen, TC Wang, SC Chang, T Hwang, CY Wang · IEEE Design Automation and Test in Europe (DATE) 2024</div>
+            <div class="pub-venue">W Tang*, YT Li*, KP Hsu, KL Chou, YC Lin, CF Chien, YC Chen, TC Wang, SC Chang, T Hwang, CY Wang · IEEE Design Automation and Test in Europe (DATE) 2024</div>
           </article>
           <article class="card publication">
             <div class="year-tag">2023</div>
@@ -625,12 +655,29 @@
          <button class="toggle-btn" onclick="togglePublications()">Show Full Publication List ▼</button>
 
         <div class="full-pub-list" id="fullPub">
-          <div class="citation">[2026] YT Li, ... Learning to Approximate... DATE</div>
-          <div class="citation">[2025] YT Li, ... Approximate Logic Synthesis... TCAD</div>
-          <div class="citation">[2024] ... A Hybrid Approach to Reverse Engineering... DATE</div>
-          <div class="citation">[2023] ... Approximate Logic Synthesis by GA... ASPDAC</div>
-          <div class="citation">[2022] ... Don’t-Care-Based Approach... TCAD</div>
-          <div class="citation">... (Total 27 publications)</div>
+          <div class="citation">(Journal, IEEE TCAD) <ins>Yi-Ting Li</ins>, Ihao Chen, Yung-Chih Chen, and Chun-Yao Wang, "Approximate Logic Synthesis for Dot-Inverter Graphs Using Node Merging-enhanced Genetic Algorithm-based Approach", IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems. pp. 1732-1745, vol. 45, No. 4, April, 2026.</div>
+          <div class="citation">(Journal, IEEE TCAD) Yu-Chuan Yen, Meng-Jing Li, <ins>Yi-Ting Li</ins>, Yung-Chih Chen, Ihao Chen, and Chun-Yao Wang, "9-input Threshold Function Identification using a New Necessary Condition of Threshold Function", IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems. pp. 4676-4686, vol. 43, No. 12, December, 2024.</div>
+          <div class="citation">(Journal, ACM TODAES) Meng-Jing Li, Yu-Chuan Yen, <ins>Yi-Ting Li</ins>, Yung-Chih Chen, and Chun-Yao Wang, "A Constructive Approach for Threshold Function Identification", ACM Transactions on Design Automation of Electronic Systems. pp. 86:1-86:19, vol. 28, No. 5, September, 2023.</div>
+          <div class="citation">(Journal, IEEE TCAD) Hsiao-Lun Liu, <ins>Yi-Ting Li</ins>, Yung-Chih Chen, and Chun-Yao Wang, "A Don’t-Care-Based Approach to Reducing the Multiplicative Complexity in Logic Networks", IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems. pp. 4821-4825, vol. 41, No. 11, November, 2022.</div>
+          <!--<div class="citation">(Conference, ISOCC'25) Chia-Feng Chien, Ming-Wei Chen, Yin-Chen Chang, Yung-Chih Chen, Yan-Hsiu Liu, Hao-Chiang Shao, Chia-Wen Lin, <ins>Yi-Ting Li</ins>, Wuqian Tang, and Chun-Yao Wang, "Improving CNN-based Pad Defect Classification with Enhanced Preprocessing Techniques", 2025 IEEE International SoC Design Conference, October 2025.</div>-->
+          <!--<div class="citation">(Conference, GLSVLSI’25) Kuan-Ling Chou, Cheng-Lung Wang, Yung-Chih Chen, Wuqian Tang, <ins>Yi-Ting Li</ins>, Shih-Chieh Chang, and Chun-Yao Wang, "CNN Model Optimization Using a Hybrid Approach of Genetic Algorithm-based Pruning and Retraining with Knowledge Distillation", 2025 ACM Great Lakes Symposium on VLSI, June 2025.</div>-->
+          <div class="citation">(Conference, DAC'25) Yu-Che Lee, Yu-Hsuan Chen, Yu-Chen Cheng, Yong-Fong Chang, Jia Wei Lin, Hsun-Wei Pao, Yung-Chih Chen, <ins>Yi-Ting Li</ins>, Wuqian Tang, Shih-Chieh Chang, and Chun-Yao Wang, "Real-Time Dynamic IR-drop Prediction for IR ECO", 2025 IEEE Design Automation Conference, June 2025.</div>
+          <!--<div class="citation">(Conference, ISQED'25) Kai-Po Hsu, Tsung-Han Lai, <ins>Yi-Ting Li</ins>, Wuqian Tang, Yun-Ju Lee, Yung-Chih Chen, Wen-Hsin Chiu, and Chun-Yao Wang, "IMU-based Motion Trajectory Reconstruction and Recognition with Dynamic Calibration on Embedded System Platform", 2025 IEEE International Symposium on Quality Electronic Design, April 2025.</div>-->
+          <!--<div class="citation">(Conference, ISPACS'24) Yu-Cheng Lee, Kai-Po Hsu, Yun-Ju Lee, <ins>Yi-Ting Li</ins>, Wuqian Tang, Yung-Chih Chen, Wen-Hsin Chiu, and Chun-Yao Wang, "On Construction of Trajectory of Boxer’s Punch using a single IMU", 2024 IEEE International Symposium on Intelligent Signal Processing and Communication Systems, December 2024.</div>-->
+          <!--<div class="citation">(Conference, SOCC'24) Wuqian Tang, Chuan-Shun Huang, Yung-Chih Chen, <ins>Yi-Ting Li</ins>, Shih-Chieh Chang, and Chun-Yao Wang, "Model Reduction Using a Hybrid Approach of Genetic Algorithm and Rule-Based Method", 2024 IEEE International System-on-Chip Conference, September 2024.</div>-->
+          <div class="citation">(Conference, GLSVLSI'24) Yong-Fong Chang, Yung-Chih Chen, Yu-Chen Cheng, Shu-Hong Lin, Che-Hsu Lin, Chun-Yuan Chen, Yu-Hsuan Chen, Yu-Che Lee, Jia-Wei Lin, Hsun-Wei Pao, Shih-Chieh Chang, <ins>Yi-Ting Li</ins>, and Chun-Yao Wang, "IR drop Prediction Based on Machine Learning and Pattern Reduction", 2024 ACM Great Lakes Symposium on VLSI, June 2024.</div>
+          <!--<div class="citation">(Conference, VLSI-TSA'24) Chuan-Shun Huang, Wuqian Tang, Yung-Chih Chen, <ins>Yi-Ting Li</ins>, Shih-Chieh Chang, and Chun-Yao Wang, "An Efficient Approach to Iterative Network Pruning", 2024 IEEE International VLSI Symposium on Technology, Systems and Applications, April 2024.</div>-->
+          <div class="citation">(Conference, DATE'24) Wuqian Tang, <ins>Yi-Ting Li</ins>, Kai-Po Hsu, Kuan-Ling Chou, You-Cheng Lin, Chia-Feng Chien, Tzu-Li Hsu, Yung-Chih Chen, Ting-Chi Wang, Shih-Chieh Chang, TingTing Hwang, and Chun-Yao Wang, "A Hybrid Approach to Reverse Engineering on Combinational Circuits", 2024 IEEE Design Automation and Test in Europe, March 2024.</div>
+          <!--<div class="citation">(Conference, ASPDAC'24) Pei-Pei Chen, Xiang-Min Yang, Yu-Cheng He, Yung-Chih Chen, <ins>Yi-Ting Li</ins>, and Chun-Yao Wang, "LOOPLock 3.0 : A Robust Cyclic Logic Locking Approach", 2024 IEEE Asia and South Pacific Design Automation Conference, January 2024.</div>-->
+          <!--<div class="citation">(Conference, ISQED'23) Hsin-Ping Yen, Shiuan-Hau Huang, Yan-Hsiu Liu, Kuang-Hsien Tseng, Ji-Fu Kung, <ins>Yi-Ting Li</ins>, Yung-Chih Chen, and Chun-Yao Wang, "A Flexible Cluster Tool Simulation Framework with Wafer Batch Dispatching Time Recommendation", 2023 IEEE International Symposium on Quality Electronic Design, April 2023.</div>-->
+          <!--<div class="citation">(Conference, VLSI-TSA'23) Yu-Chang Huang, You-Hsuen Tsai, <ins>Yi-Ting Li</ins>, Yung-Chih Chen, and Chun-Yao Wang, "Accelerating Binarized Neural Network Inference by Reusing Operation Results and Elevating Resource Utilization on Edge devices", 2023 IEEE International VLSI Symposium on Technology, Systems and Applications, April 2023.</div>-->
+          <!--<div class="citation">(Conference, VLSI-TSA'23) You-Hsuen Tsai, Yu-Chang Huang, <ins>Yi-Ting Li</ins>, Yung-Chih Chen, and Chun-Yao Wang, "Minimizing Computation in Binarized Neural Network Inference using Partial-Filter Sharing", 2023 IEEE International VLSI Symposium on Technology, Systems and Applications, April 2023.</div>-->
+          <!--<div class="citation">(Conference, VLSI-TSA'23) Ciao-Syun Lin, Pin-Yian Tsai, Yan-Hsiu Liu, <ins>Yi-Ting Li</ins>, Yung-Chih Chen, and Chun-Yao Wang, "Layout Hotspot Pattern Clustering Using a Density-based Approach", 2023 IEEE International VLSI Symposium on Technology, Systems and Applications, April 2023.</div>-->
+          <div class="citation">(Conference, ASPDAC'23) Chun-Ting Lee, <ins>Yi-Ting Li</ins>, Yung-Chih Chen, and Chun-Yao Wang, "Approximate Logic Synthesis by Genetic Algorithm with an Error Rate Guarantee", 2023 IEEE Asia and South Pacific Design Automation Conference，January 2023.</div>
+          <div class="citation">(Conference, ASPDAC'23) Hsiao-Lun Liu, <ins>Yi-Ting Li</ins>, Yung-Chih Chen, and Chun-Yao Wang, "A Robust Approach to Detecting Non-equivalent Quantum Circuits Using Specially Designed Stimuli", 2023 IEEE Asia and South Pacific Design Automation Conference, January 2023.</div>
+          <!--<div class="citation">(Conference, SOCC'21) Wen-Chih Hsu, Chia-Chun Lin, <ins>Yi-Ting Li</ins>, Yung-Chih Chen, Chun-Yao Wang, "On Reduction of Computations for Threshold Function Identification", 2021 IEEE International System-on-Chip Conference, pp. 146-151, September 2021.</div>-->
+          <!--<div class="citation">(Conference, SOCC'21) Shiuan-Hau Huang, Hsin-Ping Yen, Yan-Hsiu Liu, Kuang-Hsien Tseng, Ji-Fu Kung, Chia-Chun Lin, <ins>Yi-Ting Li</ins>, Yung-Chih Chen, Chun-Yao Wang, "Cluster Tool Performance Analysis Using Graph Database", 2021 IEEE International System-on-Chip Conference, pp. 230-235, September 2021.</div>-->
+          <!--<div class="citation">(Conference, SOCC'21) Yi-Ting Lin, Chun-Jui Chen, Pei-Yi Kuo, Si-Huei Lee, Chia-Chun Lin, Yun-Ju Lee, <ins>Yi-Ting Li</ins>, Yung-Chih Chen, Chun-Yao Wang, "An IMU-Aided Fitness System", 2021 IEEE International System-on-Chip Conference, pp. 224-229, September 2021.</div>-->
         </div>
       </div>
     </section>
@@ -638,27 +685,29 @@
     <section id="achievements">
       <div class="container">
         <h2 class="section-title">Achievements🏆</h2>
-        <p class="section-lead">Competition results and academic recognition across major CAD events.</p>
+        <p class="section-lead">Competition results and academic recognition.</p>
         <div class="achievement-list">
           <article class="card achievement">
             <div class="year-tag">2024</div>
             <div class="ach-title">Cadathlon @ ICCAD’24, 2nd Place</div>
-            <div class="ach-desc">One-day EDA programming competition covering circuit design, physical design, synthesis, system design, verification, and future technology.</div>
+            <div class="ach-desc">A one-day programming competition focusing on Electronic Design Automation (EDA). It covers six areas
+including Circuit Design & Analysis, Physical Design, Logic & High-level Synthesis, System Design,
+Functional Verification & Testing, and Future Technology (AI, Security).</div>
           </article>
           <article class="card achievement">
             <div class="year-tag">2024</div>
             <div class="ach-title">CAD Contest @ ICCAD’24, Honorable Mention of Problem B</div>
-            <div class="ach-desc">Power and Timing Optimization Using Multibit Flip-Flop.</div>
+            <div class="ach-desc">Topic: Power and Timing Optimization Using Multibit Flip-Flop</div>
           </article>
           <article class="card achievement">
             <div class="year-tag">2024</div>
             <div class="ach-title">CAD Contest @ ICCAD’24, 2nd Place of Problem A</div>
-            <div class="ach-desc">Reinforcement Logic Optimization for a General Cost Function.</div>
+            <div class="ach-desc">Topic: Reinforcement Logic Optimization for a General Cost Function</div>
           </article>
           <article class="card achievement">
             <div class="year-tag">2023</div>
             <div class="ach-title">CAD Contest @ ICCAD’23, 3rd Place of Problem A</div>
-            <div class="ach-desc">Multi-bit Large-scale Boolean Matching.</div>
+            <div class="ach-desc">Topic: A Multi-bit Large-scale Boolean Matching.</div>
           </article>
           <article class="card achievement">
             <div class="year-tag">2022</div>
@@ -667,8 +716,13 @@
           </article>
           <article class="card achievement">
             <div class="year-tag">2022 / 2021</div>
-            <div class="ach-title">CAD Contest @ ICCAD’22 1st Place · ICCAD’21 Honorable Mention</div>
-            <div class="ach-desc">Awarded for gate-level learning and functional ECO related competition problems.</div>
+            <div class="ach-title">CAD Contest @ ICCAD’22 1st Place</div>
+            <div class="ach-desc">Topic: Learning Arithmetic Operations from Gate-Level Circuit</div>
+          </article>
+            <article class="card achievement">
+            <div class="year-tag">2021</div>
+            <div class="ach-title">CAD Contest @ ICCAD’21 Honorable Mention</div>
+            <div class="ach-desc">Topic: Functional ECO with Behavioral Change Guidance</div>
           </article>
         </div>
       </div>
@@ -697,7 +751,7 @@
             </ul>
           </article>
           <article class="card skill-card">
-            <h3>Course Projects</h3>
+            <h3>Some Small Projects</h3>
             <ul>
               <li>Systolic Array DNN Accelerator</li>
               <li>K-LUT Technology Mapping for Delay Optimization</li>
@@ -715,7 +769,7 @@
           <div>
             <h2 class="section-title">Contact</h2>
             <p class="section-lead">
-              I am interested in EDA research, logic synthesis, heterogeneous integration, and related collaborations. Feel free to reach out for research discussion or professional contact.
+            Feel free to reach out for research discussion or professional contact.
             </p>
           </div>
           <div class="contact-box">
@@ -746,6 +800,11 @@
     });
 
     year.textContent = new Date().getFullYear();
+
+    function togglePublications() {
+      const el = document.getElementById('fullPub');
+      el.classList.toggle('show');
+    }
   </script>
 </body>
 </html>
